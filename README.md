@@ -18,10 +18,10 @@
 ## FlowChart
 ```mermaid
 graph TD;
-	A[BookShelf_Image] -- get_cropped_images --> B{Cropped_Pictures};
-    B -- get_text_location_from_api --> D[Analyzed_dataframe];
+	A[BookShelf_Image] -- get_cropped_images --> B[Cropped_Pictures];
+    B -- get_text_location_from_api --> D{Analyzed_dataframe};
     C[csv_file_in_data] -- load_df_dict --> D;
-    D -- group_related_text --> F[Grouped_text];
+    D -- group_related_text --> F{Grouped_text};
     E[data.pickle] -- pickle.load --> F;
     F -- remove_duplicates --> G[Unique_Grouped_text];
     G -- combine_elements --> H[Combined_grouped_text];
