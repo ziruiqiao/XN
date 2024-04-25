@@ -17,7 +17,7 @@
 
 ## FlowChart
 ```mermaid
-graph LR;
+graph TD;
 	A[BookShelf_Image] -- get_cropped_images --> B{Cropped_Pictures};
     B -- get_text_location_from_api --> D[Analyzed_dataframe];
     C[csv_file_in_data] -- load_df_dict --> D;
