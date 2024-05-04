@@ -1,4 +1,4 @@
-txt,confidence,vertices,boundBox,slopes,font,word_len,direction,center_point,crop_idx,Left,Top,label
+txt,confidence,vertices,boundBox,slopes,font,word_len,direction,center_point,crop_idx,Left,Top,Label
 med,100,"[(101, 75), (102, 99), (89, 99), (88, 75)]","{'Width': 14, 'Height': 24, 'Left': 88, 'Top': 75}","(-24.0, 0.0, -24.0, -0.0)",13,24.0208243,vertical,"(95.0, 87.0)","(0, 0)",88,75,0
 all,100,"[(102, 106), (102, 124), (88, 124), (88, 106)]","{'Width': 14, 'Height': 18, 'Left': 88, 'Top': 106}","(1000.0, 0.0, 1000.0, -0.0)",14,18,vertical,"(95.0, 115.0)","(0, 0)",88,106,1
 the,100,"[(102, 126), (102, 146), (89, 146), (89, 126)]","{'Width': 13, 'Height': 20, 'Left': 89, 'Top': 126}","(1000.0, 0.0, 1000.0, -0.0)",13,20,vertical,"(95.5, 136.0)","(0, 0)",89,126,1

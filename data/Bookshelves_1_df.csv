@@ -1,4 +1,4 @@
-txt,confidence,vertices,boundBox,slopes,font,word_len,direction,center_point,crop_idx,Left,Top,label
+txt,confidence,vertices,boundBox,slopes,font,word_len,direction,center_point,crop_idx,Left,Top,Label
 THE,100,"[(83, 360), (85, 402), (69, 403), (67, 361)]","{'Width': 18, 'Height': 43, 'Left': 67, 'Top': 360}","(-21.0, 0.062, -21.0, 0.062)",16.03121954,42.04759208,vertical,"(76.0, 381.5)","(0, 0)",67,360,1
 TIPPING,100,"[(85, 412), (88, 501), (72, 502), (69, 413)]","{'Width': 19, 'Height': 90, 'Left': 69, 'Top': 412}","(-29.667, 0.062, -29.667, 0.062)",16.03121954,89.05054744,vertical,"(78.5, 457.0)","(0, 0)",69,412,1
 POINT,100,"[(89, 511), (92, 578), (76, 579), (73, 512)]","{'Width': 19, 'Height': 68, 'Left': 73, 'Top': 511}","(-22.333, 0.062, -22.333, 0.062)",16.03121954,67.06713055,vertical,"(82.5, 545.0)","(0, 0)",73,511,1
