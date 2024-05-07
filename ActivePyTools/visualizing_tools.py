@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import pandas as pd
 from pandas.core.series import Series
+from shapely.geometry import Polygon
 
 
 def plot_box_intersect(vertices, slopes, intercepts, additional_vertices=None, padding=10, y_limits=None):
@@ -74,3 +75,28 @@ def plot_text_detected(im, df: pd.DataFrame, save_picname: str, dpi=300):
     else:
         plt.show()
     plt.close(fix)
+
+
+def draw_text_on_image(text_row: pd.Series, image, padding: int = 10):
+    vertices = text_row.vertices
+    x_coords, y_coords = zip(*vertices)
+
+    min_x = max(int(min(x_coords) - padding), 0)
+    max_x = min(int(max(x_coords) + padding), image.shape[1])
+    min_y = max(int(min(y_coords) - padding), 0)
+    max_y = min(int(max(y_coords) + padding), image.shape[0])
+
+    # print(min_x, max_x, min_y, max_y)
+
+    cropped_image = image[min_y:max_y, min_x:max_x]
+
+    fig, ax = plt.subplots()
+    ax.imshow(cropped_image, extent=[min_x, max_x, min_y, max_y])
+
+    ax.add_patch(draw_rectangle(get_text_data(text_row), color='red'))
+
+    ax.set_xlim(min_x, max_x)
+    ax.set_ylim(min_y, max_y)
+
+    ax.legend()
+    plt.show()
