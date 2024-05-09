@@ -4,7 +4,6 @@ from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, r
 
 from ActivePyTools.grab_data import eval_object_columns
 
-
 loc_df_path = 'data/digit_data/loc_df.csv'
 vec_df_path = 'data/digit_data/vec_df.csv'
 
@@ -48,9 +47,7 @@ def load_vec_data(root_path):
     return vec_df, X_train, y_train, X_valid, y_valid, X_test, y_test
 
 
-def measure_performance(self, y, preds, enable_print=True):
-    if self.preds is None:
-        raise Exception("No Predictions Stored!")
+def measure_performance(y, preds, enable_print=True):
     accuracy = accuracy_score(y, preds)
     cm = confusion_matrix(y, preds)
     precision = precision_score(y, preds)
@@ -59,6 +56,27 @@ def measure_performance(self, y, preds, enable_print=True):
     TN = cm[0, 0]
     FP = cm[0, 1]
     specificity = TN / (TN + FP)
+
+    if enable_print:
+        print(f"CM: \n{cm}")
+        print(f'Precision: {precision:.2f}')
+        print(f'Recall: {recall:.2f}')
+        print(f'Specificity: {specificity:.2f}')
+        print(f'Accuracy: {accuracy:.2f}')
+
+    return precision, recall, specificity, cm
+
+
+def apply_metric(preds, y_actual, enable_print=False):
+
+    cm = confusion_matrix(preds, y_actual)
+    TN = cm[0, 0]
+    FP = cm[0, 1]
+
+    precision = precision_score(preds, y_actual)
+    recall = recall_score(preds, y_actual)
+    specificity = TN / (TN + FP)
+    accuracy = accuracy_score(preds, y_actual)
 
     if enable_print:
         print(f"CM: \n{cm}")
