@@ -47,36 +47,16 @@ def load_vec_data(root_path):
     return vec_df, X_train, y_train, X_valid, y_valid, X_test, y_test
 
 
-def measure_performance(y, preds, enable_print=True):
-    accuracy = accuracy_score(y, preds)
-    cm = confusion_matrix(y, preds)
-    precision = precision_score(y, preds)
-    recall = recall_score(y, preds)
+def apply_metric(y_actual, preds, enable_print=True):
 
-    TN = cm[0, 0]
-    FP = cm[0, 1]
-    specificity = TN / (TN + FP)
-
-    if enable_print:
-        print(f"CM: \n{cm}")
-        print(f'Precision: {precision:.2f}')
-        print(f'Recall: {recall:.2f}')
-        print(f'Specificity: {specificity:.2f}')
-        print(f'Accuracy: {accuracy:.2f}')
-
-    return precision, recall, specificity, cm
-
-
-def apply_metric(preds, y_actual, enable_print=False):
-
-    cm = confusion_matrix(preds, y_actual)
+    cm = confusion_matrix(y_actual, preds)
     TN = cm[0, 0]
     FP = cm[0, 1]
 
-    precision = precision_score(preds, y_actual)
-    recall = recall_score(preds, y_actual)
+    precision = precision_score(y_actual, preds, zero_division=0)
+    recall = recall_score(y_actual, preds)
     specificity = TN / (TN + FP)
-    accuracy = accuracy_score(preds, y_actual)
+    accuracy = accuracy_score(y_actual, preds)
 
     if enable_print:
         print(f"CM: \n{cm}")
