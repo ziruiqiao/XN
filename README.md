@@ -29,3 +29,16 @@ graph TD;
 ```
 
 > We could Try to use AI to remove noise before `group_related_text` function but after get `Analyzed_dataframe`.
+
+For the OCR Detection Noise Removing Project, the demo of the project is 'cnn_model/ensemble_model.ipynb'. 
+To run the project, ensure you have the following libraries installed:
+1. pytorch
+2. torchvision
+3. chardet
+4. pandas
+5. numpy
+6. joblib
+7. sklearn
+8. PIL
+
+Clone the project to local machine and run 'cnn_model/ensemble_model.ipynb'. 
