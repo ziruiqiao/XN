@@ -31,3 +31,10 @@ class CustomLRModel:
         self.preds = preds
         return preds
 
+    def predict_proba(self, x_loc, x_vec):
+        loc_preds = self.loc_model.predict_proba(x_loc)[:, 1]
+        vec_preds = self.vec_model.predict_proba(x_vec)[:, 1]
+        x = np.column_stack((loc_preds, vec_preds))
+
+        probs = self.meta_model.predict_proba(x)
+        return probs
